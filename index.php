@@ -9,7 +9,6 @@
     <title>PHP HOTEL</title>
 </head>
 <body>
-    <h1 class="mt-4">asdasd</h1>
 </body>
 </html>
 
@@ -57,17 +56,18 @@
     // DEBUG
     // var_dump($hotels);
     foreach($hotels as $indice => $hotel){
-        echo'Numero Hotel: '.($indice).' ';
-        echo '<h1>' . $hotel["name"] . '</h1>';
-        echo ' <span>' . $hotel["description"] . '</span> ';
-        if($hotel["parking"]){
-            echo ' <span style = color:green>' . 'Parcheggio' . '</span> ';
-        }
-        else{
-            echo ' <span style = color:red>' . 'Parcheggio' . '</span> ';
-        }
-        echo ' <h3 style=display:inline-block>' .'Voto: '. $hotel["vote"] . '</h3> ';
-        echo ' <span style= color: orange>' . 'Dista dal centro: '.$hotel["distance_to_center"] .' km'. '</span> ';
+        echo '<div class="my-2">';
+            echo 'Numero Hotel: ' . ($indice) . ' ';
+            echo '<h1>' . $hotel["name"] . '</h1>';
+            echo '<span>' . $hotel["description"] . '</span> ';
+            if ($hotel["parking"]) {
+                echo '<span style="color:green">' . 'Parcheggio' . '</span> ';
+            } else {
+                echo '<span style="color:red">' . 'Parcheggio' . '</span> ';
+            }
+            echo '<h3 style="display:inline-block">' . 'Voto: ' . $hotel["vote"] . '</h3> ';
+            echo '<span style="color:orange">' . 'Dista dal centro: ' . $hotel["distance_to_center"] . ' km' . '</span> ';
+        echo '</div>';
         echo'<br>';
     }
 ?>
