@@ -105,12 +105,14 @@ echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
 $scelta = '';
+$voto = '';
+$trovato=true;
 if (isset($_GET['validationCustom01'])&& isset($_GET['validationCustom02'])) {
     $scelta = $_GET['validationCustom01'];
     $voto= $_GET['validationCustom02'];
     if ($scelta != '') {
 
-        echo "The selected option is: " . $scelta;
+        echo "Opzione selezionata: " . $scelta;
     }
 }
 foreach ($hotels as $indice => $hotel) {
@@ -128,7 +130,10 @@ foreach ($hotels as $indice => $hotel) {
         echo '<td>' . $hotel["vote"] . '</td>';
         echo '<td>' . $hotel["distance_to_center"] . ' km' . '</td>';
         echo '</tr>';
-    }
+        }
+        else{
+            $trovato=false;
+        }
 }
 }
 
@@ -136,5 +141,9 @@ foreach ($hotels as $indice => $hotel) {
 echo '</tbody>';
 echo '</table>';
 echo '</div>';
-echo '<br>'
+echo '<br>';
+if(!$trovato){
+    echo'NESSUN HOTEL TROVATO';
+}
+
     ?>
