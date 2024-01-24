@@ -55,19 +55,33 @@
     ];
     // DEBUG
     // var_dump($hotels);
-    foreach($hotels as $indice => $hotel){
-        echo '<div class="my-2">';
-            echo 'Numero Hotel: ' . ($indice) . ' ';
-            echo '<h1>' . $hotel["name"] . '</h1>';
-            echo '<span>' . $hotel["description"] . '</span> ';
-            if ($hotel["parking"]) {
-                echo '<span style="color:green">' . 'Parcheggio' . '</span> ';
-            } else {
-                echo '<span style="color:red">' . 'Parcheggio' . '</span> ';
-            }
-            echo '<h3 style="display:inline-block">' . 'Voto: ' . $hotel["vote"] . '</h3> ';
-            echo '<span style="color:orange">' . 'Dista dal centro: ' . $hotel["distance_to_center"] . ' km' . '</span> ';
-        echo '</div>';
-        echo'<br>';
+    echo '<div class="container w-75">';
+    echo '<table class="table table-striped">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th scope="col">Numero Hotel</th>';
+    echo '<th scope="col">Nome</th>';
+    echo '<th scope="col">Descrizione</th>';
+    echo '<th scope="col">Parcheggio</th>';
+    echo '<th scope="col">Voto</th>';
+    echo '<th scope="col">Distanza dal centro</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+
+    foreach ($hotels as $indice => $hotel) {
+        echo '<tr>';
+        echo '<td>' . ($indice + 1) . '</td>';
+        echo '<td>' . $hotel["name"] . '</td>';
+        echo '<td>' . $hotel["description"] . '</td>';
+        echo '<td>' . ($hotel["parking"] ? '<span style="color:green">Si</span>' : '<span style="color:red">No</span>') . '</td>';
+        echo '<td>' . $hotel["vote"] . '</td>';
+        echo '<td>' . $hotel["distance_to_center"] . ' km' . '</td>';
+        echo '</tr>';
     }
+    
+    echo '</tbody>';
+    echo '</table>';
+    echo '</div>';
+    echo '<br>'
 ?>
